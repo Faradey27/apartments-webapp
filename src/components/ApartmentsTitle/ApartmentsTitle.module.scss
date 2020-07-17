@@ -1,0 +1,44 @@
+@import '../../theme.scss';
+
+.description {
+  display: flex;
+  width: 100%;
+  padding-top: spacing(2.5);
+  padding-bottom: spacing(2.5);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.descriptionTitle {
+  margin-top: 0;
+  margin-bottom: spacing(2);
+  color: $titleTextColor;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.numberOfPeople {
+  display: flex;
+  align-items: center;
+  margin-right: spacing(2);
+  color: $metadataColor;
+  font-weight: 700;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+}
+
+.pinIcon {
+  opacity: 0.3;
+  margin-right: spacing(0.5);
+}

@@ -1,0 +1,43 @@
+@import '../../theme';
+
+.image {
+  height: 40vh;
+  width: 100%;
+  background-position: 50% 50%;
+  background-size: cover;
+
+  @media screen and (min-width: $breakpoint-tabletL) {
+    height: 66vh;
+  }
+}
+
+.description,
+.d3tour,
+.notes,
+.gallery {
+  margin-top: spacing(5);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.galleryItem {
+  width: 50%;
+
+  @media screen and (min-width: $breakpoint-tabletL) {
+    width: 25%;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 60px;
+
+  @media screen and (min-width: $breakpoint-tabletL) {
+    grid-template-columns: 1fr 272px;
+  }
+}

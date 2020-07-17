@@ -1,0 +1,15 @@
+{
+  "id": 3,
+  "name": "Spacious Studio Home",
+  "capacity": 2,
+  "location": "Telliskivi, Tallinn",
+  "available": true,
+  "description": "<p>This achingly cool studio is in Tallinn’s creative district Telliskivi. Inspired by its neighbourhood, the studio's unique Nordic-industrial style is translated into bespoke interiors by the best local designers.<br><br>Enjoy a cozy bedroom with a premium queen bed, a fully-equipped kitchen and a spacious living room. And you’re all set with hand-picked breakfast options and free gym access.</p>",
+  "image": "https://assets.website-files.com/5e395796159b58694fe1232c/5e6a964416f3f2124c9834ab_S3T%20(%2342)%20BobW_Telliskivi%20(15%20of%20155)%20(1)%20(1).jpg",
+  "gallery": [
+    "https://assets.website-files.com/5e395796159b58694fe1232c/5e6a94993745e4c24571dcb2_S2T%20(%2341)%20BobW_Telliskivi%20(20%20of%20155)%20(3)%20(1)%20(1).jpg",
+    "https://assets.website-files.com/5e395796159b58694fe1232c/5e6a978030bb15dc74d49445_S2T%20(%2341)%20BobW_Telliskivi%20(25%20of%20155)%20(1)%20(1).jpg",
+    "https://assets.website-files.com/5e395796159b58694fe1232c/5e6a964416f3f2124c9834ab_S3T%20(%2342)%20BobW_Telliskivi%20(15%20of%20155)%20(1)%20(1).jpg",
+    "https://assets.website-files.com/5e395796159b58694fe1232c/5e6a985f729393e768436098_IMG_3219%20(1)%20(1).jpg"
+  ]
+}

@@ -1,15 +1,26 @@
 import { getType } from 'typesafe-actions';
 
-import { Apartment, RequestState } from '../../api/types';
-import { ApartmentsAction, fetchApartmentsAsyncAction } from './actions';
+import { Apartment, RequestState, ApartmentsDetails } from '../../api/types';
+import {
+  ApartmentsAction,
+  fetchApartmentsAsyncAction,
+  fetchApartmentsDetailsAsyncAction,
+} from './actions';
 
 export interface ApartmentsState {
   items: Apartment[];
+  apartmentsDetails: {
+    [key: number]: {
+      requestState: RequestState;
+      data: ApartmentsDetails;
+    };
+  };
   requestState: RequestState;
 }
 
 const initialState: ApartmentsState = {
   items: [],
+  apartmentsDetails: {},
   requestState: RequestState.unset,
 };
 
@@ -35,6 +46,38 @@ export const apartmentsReducer = (
       return {
         ...state,
         requestState: RequestState.failure,
+      };
+    }
+
+    case getType(fetchApartmentsDetailsAsyncAction.request): {
+      return {
+        ...state,
+        apartmentsDetails: {
+          ...state.apartmentsDetails,
+          [action.payload]: {
+            requestState: RequestState.waiting,
+          },
+        },
+      };
+    }
+    case getType(fetchApartmentsDetailsAsyncAction.success): {
+      return {
+        ...state,
+        apartmentsDetails: {
+          ...state.apartmentsDetails,
+          [action.payload.id]: {
+            data: action.payload.data,
+            requestState: RequestState.success,
+          },
+        },
+      };
+    }
+    case getType(fetchApartmentsDetailsAsyncAction.failure): {
+      return {
+        ...state,
+        [action.payload.id]: {
+          requestState: RequestState.failure,
+        },
       };
     }
 

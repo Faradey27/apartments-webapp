@@ -38,6 +38,9 @@ const Apartments = () => {
           <ApartmentsCard
             key={apartment.id}
             id={apartment.id}
+            name={apartment.name}
+            capacity={apartment.capacity}
+            location={apartment.location}
             image={apartment.image}
           />
         ))}

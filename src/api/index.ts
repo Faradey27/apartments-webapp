@@ -1,5 +1,5 @@
 import { homepage } from '../../package.json';
-import { Apartment } from './types';
+import { Apartment, ApartmentsDetails } from './types';
 
 export * from './types';
 
@@ -34,4 +34,13 @@ export const fetchApartments = async (): Promise<{
   await delay(500);
 
   return request('GET', { path: '/api/apartments.json' });
+};
+
+export const fetchApartmentsDetails = async (
+  id: number
+): Promise<ApartmentsDetails> => {
+  // small trick to make requests feel like real
+  await delay(500);
+
+  return request('GET', { path: `/api/apartments/${id}.json` });
 };
