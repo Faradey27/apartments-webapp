@@ -1,0 +1,118 @@
+@import '../../theme.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.imageContent {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 60%;
+  justify-content: center;
+  align-items: center;
+  background-color: $gray;
+}
+
+.image {
+  position: absolute;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.description {
+  display: flex;
+  width: 100%;
+  padding-top: spacing(2.5);
+  padding-bottom: spacing(2.5);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.descriptionTitle {
+  margin-top: 0;
+  margin-bottom: spacing(2);
+  color: $titleTextColor;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.numberOfPeople {
+  display: flex;
+  align-items: center;
+  margin-right: spacing(2);
+  color: $metadataColor;
+  font-weight: 700;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+}
+
+.pinIcon {
+  opacity: 0.3;
+  margin-right: spacing(0.5);
+}
+
+.footer {
+  display: grid;
+  width: 100%;
+  margin-top: spacing(2.5);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-auto-columns: 1fr;
+}
+
+.visualize {
+  display: flex;
+  width: 100%;
+  padding-top: spacing(2);
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  color: $primaryTextColor;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.visualizeText {
+  margin-left: spacing(3);
+}
+
+.bookNow,
+.learnMore {
+  display: flex;
+  height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  border: 1px solid #000;
+  color: $primaryTextColor;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.learnMore {
+  border-color: #f0f0f0;
+}

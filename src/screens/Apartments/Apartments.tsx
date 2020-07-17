@@ -7,6 +7,9 @@ import {
   selectApartments,
 } from '../../state/apartments';
 import ApartmentsCard from '../../components/ApartmentsCard';
+import IntroSection from '../../components/IntroSection';
+
+import styles from './Apartments.module.scss';
 
 const messages = defineMessages({
   pageTitle: {
@@ -29,10 +32,16 @@ const Apartments = () => {
       <Helmet>
         <title>{intl.formatMessage(messages.pageTitle)}</title>
       </Helmet>
-      APARTMENTS
-      {apartments.map((apartment) => (
-        <ApartmentsCard key={apartment.id} id={apartment.id} />
-      ))}
+      <IntroSection />
+      <div className={styles.content}>
+        {apartments.map((apartment) => (
+          <ApartmentsCard
+            key={apartment.id}
+            id={apartment.id}
+            image={apartment.image}
+          />
+        ))}
+      </div>
     </main>
   );
 };

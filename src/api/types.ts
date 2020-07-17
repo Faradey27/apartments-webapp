@@ -9,5 +9,5 @@ export interface Apartment {
   id: number;
   name: string;
   available: boolean;
-  image?: boolean;
+  image: string;
 }

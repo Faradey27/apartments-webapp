@@ -6,9 +6,11 @@ import Payment from './screens/Payment';
 import ThankYou from './screens/ThankYou';
 import HeaderBar from './components/HeaderBar';
 
+import styles from './App.module.scss';
+
 const App: React.FC<{}> = () => {
   return (
-    <div data-testid="app-root">
+    <div data-testid="app-root" className={styles.root}>
       <Router>
         <HeaderBar />
         <Switch>

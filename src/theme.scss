@@ -4,9 +4,13 @@ $white: #fff;
 $gray: #f5f7f6;
 
 $primaryTextColor: #333;
+$titleTextColor: #7a7a7a;
+$metadataColor: #8c7f4e;
 
 $breakpoint-mobile: 479px;
 $breakpoint-tablet: 768px;
+$breakpoint-tabletL: 991px;
+$breakpoint-laptopL: 1440px;
 
 @function spacing($value) {
   @return $value * $space * 1px;

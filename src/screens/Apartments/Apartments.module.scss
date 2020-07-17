@@ -1,0 +1,18 @@
+@import '../../theme';
+
+.content {
+  display: grid;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: stretch;
+  grid-template-columns: 100%;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 3vw;
+  grid-row-gap: spacing(5);
+  margin-top: spacing(8);
+  padding-bottom: spacing(20);
+
+  @media screen and (min-width: $breakpoint-tabletL) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

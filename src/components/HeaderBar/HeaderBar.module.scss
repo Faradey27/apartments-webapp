@@ -3,43 +3,44 @@
 .root {
   display: flex;
   width: 100%;
-  height: spacing(16);
-  margin-bottom: spacing(5);
-  padding-right: 6.25vw;
-  padding-left: 6.25vw;
+  height: spacing(10);
+  margin-bottom: spacing(2.5);
+  padding-left: spacing(2.5);
+  padding-right: spacing(2.5);
   justify-content: space-between;
   align-items: stretch;
   background-color: $gray;
 
-  @media screen and (max-width: $breakpoint-tablet) {
-    height: spacing(10);
-    margin-bottom: spacing(2.5);
+  @media screen and (min-width: $breakpoint-tablet) {
+    height: spacing(16);
+    margin-bottom: spacing(5);
     padding-right: spacing(10);
     padding-left: spacing(5);
   }
 
-  @media screen and (max-width: $breakpoint-mobile) {
-    padding-left: spacing(2.5);
+  @media screen and (min-width: $breakpoint-laptopL) {
+    padding-right: spacing(10);
+    padding-left: spacing(10);
   }
 }
 
 .logo {
   display: flex;
-  padding-right: spacing(5);
-  padding-left: spacing(5);
+  padding-right: 0;
+  padding-left: 0;
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: $breakpoint-tablet) {
-    padding-right: 0;
-    padding-left: 0;
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-right: spacing(5);
+    padding-left: spacing(5);
   }
 }
 
 .logoIcon {
-  width: 140px;
+  width: 100px;
 
-  @media screen and (max-width: $breakpoint-tablet) {
-    width: 100px;
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 140px;
   }
 }
