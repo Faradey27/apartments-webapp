@@ -1,8 +1,6 @@
 import * as api from '../../api';
 import { RootThunkAction } from '../action';
-import {
-  fetchApartmentsAsyncAction,
-} from './actions';
+import { fetchApartmentsAsyncAction } from './actions';
 
 export const fetchApartmentsAction = (): RootThunkAction => {
   return async (dispatch) => {

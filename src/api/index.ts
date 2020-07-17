@@ -1,7 +1,5 @@
 import { homepage } from '../../package.json';
-import {
-  Apartment,
-} from './types';
+import { Apartment } from './types';
 
 export * from './types';
 
@@ -26,9 +24,12 @@ const request = async (method: string, { path }: { path: string }) => {
   }
 
   return response;
-}
+};
 
-export const fetchApartments = async (): Promise<{ totalNumber: number, items: Apartment[] }> => {
+export const fetchApartments = async (): Promise<{
+  totalNumber: number;
+  items: Apartment[];
+}> => {
   // small trick to make requests feel like real
   await delay(500);
 
