@@ -4,11 +4,13 @@ import Apartment from './screens/Apartment';
 import Apartments from './screens/Apartments';
 import Payment from './screens/Payment';
 import ThankYou from './screens/ThankYou';
+import HeaderBar from './components/HeaderBar';
 
 const App: React.FC<{}> = () => {
   return (
     <div data-testid="app-root">
       <Router>
+        <HeaderBar />
         <Switch>
           <Route path="/apartments/:id">
             <Apartment />
