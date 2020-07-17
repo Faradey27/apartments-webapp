@@ -1,0 +1,11 @@
+$space: 8;
+
+$white: #fff;
+
+@function spacing($value) {
+  @return $value * $space * 1px;
+}
+
+:export {
+  white: $white;
+}

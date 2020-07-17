@@ -1,0 +1,23 @@
+{
+  "totalNumber": 3,
+  "items": [
+    {
+      "id": 1,
+      "name": "Cheap room",
+      "available": true,
+      "image": "https://via.placeholder.com/400x200.png?text=Cheap%20room"
+    },
+    {
+      "id": 2,
+      "name": "Not so cheaproom",
+      "available": false,
+      "image": "https://via.placeholder.com/400x200.png?text=Not%20so%20cheap%20room"
+    },
+    {
+      "id": 3,
+      "name": "Expensiveroom",
+      "available": true,
+      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+    }
+  ]
+}
