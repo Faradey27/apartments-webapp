@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/bobw-task/static/css/main.9c81dc95.chunk.css",
+    "main.js": "/bobw-task/static/js/main.7408f049.chunk.js",
+    "main.js.map": "/bobw-task/static/js/main.7408f049.chunk.js.map",
+    "runtime-main.js": "/bobw-task/static/js/runtime-main.6ea86380.js",
+    "runtime-main.js.map": "/bobw-task/static/js/runtime-main.6ea86380.js.map",
+    "static/css/2.19b7558e.chunk.css": "/bobw-task/static/css/2.19b7558e.chunk.css",
+    "static/js/2.b469c782.chunk.js": "/bobw-task/static/js/2.b469c782.chunk.js",
+    "static/js/2.b469c782.chunk.js.map": "/bobw-task/static/js/2.b469c782.chunk.js.map",
+    "index.html": "/bobw-task/index.html",
+    "precache-manifest.70ea59e29e87f3b3410249c9ffc19f60.js": "/bobw-task/precache-manifest.70ea59e29e87f3b3410249c9ffc19f60.js",
+    "service-worker.js": "/bobw-task/service-worker.js",
+    "static/css/2.19b7558e.chunk.css.map": "/bobw-task/static/css/2.19b7558e.chunk.css.map",
+    "static/css/main.9c81dc95.chunk.css.map": "/bobw-task/static/css/main.9c81dc95.chunk.css.map",
+    "static/js/2.b469c782.chunk.js.LICENSE.txt": "/bobw-task/static/js/2.b469c782.chunk.js.LICENSE.txt",
+    "static/media/3d.2278fa81.svg": "/bobw-task/static/media/3d.2278fa81.svg",
+    "static/media/human.d44d45f3.svg": "/bobw-task/static/media/human.d44d45f3.svg",
+    "static/media/logo.f5e06f12.svg": "/bobw-task/static/media/logo.f5e06f12.svg",
+    "static/media/IntroSection.module.scss": "/bobw-task/static/media/photo.cc989c95.jpg",
+    "static/media/pin.d9d208a8.svg": "/bobw-task/static/media/pin.d9d208a8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6ea86380.js",
+    "static/css/2.19b7558e.chunk.css",
+    "static/js/2.b469c782.chunk.js",
+    "static/css/main.9c81dc95.chunk.css",
+    "static/js/main.7408f049.chunk.js"
+  ]
+}
