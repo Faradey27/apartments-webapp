@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/bobw-task/static/css/main.1ada8eb8.chunk.css",
-    "main.js": "/bobw-task/static/js/main.567abc98.chunk.js",
-    "main.js.map": "/bobw-task/static/js/main.567abc98.chunk.js.map",
+    "main.css": "/bobw-task/static/css/main.a0202f06.chunk.css",
+    "main.js": "/bobw-task/static/js/main.ac846b06.chunk.js",
+    "main.js.map": "/bobw-task/static/js/main.ac846b06.chunk.js.map",
     "runtime-main.js": "/bobw-task/static/js/runtime-main.6ea86380.js",
     "runtime-main.js.map": "/bobw-task/static/js/runtime-main.6ea86380.js.map",
     "static/css/2.19b7558e.chunk.css": "/bobw-task/static/css/2.19b7558e.chunk.css",
-    "static/js/2.548c65dc.chunk.js": "/bobw-task/static/js/2.548c65dc.chunk.js",
-    "static/js/2.548c65dc.chunk.js.map": "/bobw-task/static/js/2.548c65dc.chunk.js.map",
+    "static/js/2.2ff6ce94.chunk.js": "/bobw-task/static/js/2.2ff6ce94.chunk.js",
+    "static/js/2.2ff6ce94.chunk.js.map": "/bobw-task/static/js/2.2ff6ce94.chunk.js.map",
     "index.html": "/bobw-task/index.html",
-    "precache-manifest.68ce3f20e86980f0529b05379e02665e.js": "/bobw-task/precache-manifest.68ce3f20e86980f0529b05379e02665e.js",
+    "precache-manifest.37291f20870b49309f03c9c01c187862.js": "/bobw-task/precache-manifest.37291f20870b49309f03c9c01c187862.js",
     "service-worker.js": "/bobw-task/service-worker.js",
     "static/css/2.19b7558e.chunk.css.map": "/bobw-task/static/css/2.19b7558e.chunk.css.map",
-    "static/css/main.1ada8eb8.chunk.css.map": "/bobw-task/static/css/main.1ada8eb8.chunk.css.map",
-    "static/js/2.548c65dc.chunk.js.LICENSE.txt": "/bobw-task/static/js/2.548c65dc.chunk.js.LICENSE.txt",
+    "static/css/main.a0202f06.chunk.css.map": "/bobw-task/static/css/main.a0202f06.chunk.css.map",
+    "static/js/2.2ff6ce94.chunk.js.LICENSE.txt": "/bobw-task/static/js/2.2ff6ce94.chunk.js.LICENSE.txt",
     "static/media/3d.2278fa81.svg": "/bobw-task/static/media/3d.2278fa81.svg",
     "static/media/arrowRight.5685bb48.svg": "/bobw-task/static/media/arrowRight.5685bb48.svg",
     "static/media/bobw.f5e06f12.svg": "/bobw-task/static/media/bobw.f5e06f12.svg",
@@ -31,8 +31,8 @@
   "entrypoints": [
     "static/js/runtime-main.6ea86380.js",
     "static/css/2.19b7558e.chunk.css",
-    "static/js/2.548c65dc.chunk.js",
-    "static/css/main.1ada8eb8.chunk.css",
-    "static/js/main.567abc98.chunk.js"
+    "static/js/2.2ff6ce94.chunk.js",
+    "static/css/main.a0202f06.chunk.css",
+    "static/js/main.ac846b06.chunk.js"
   ]
 }

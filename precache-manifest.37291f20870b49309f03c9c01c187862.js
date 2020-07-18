@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "48c25e38b59761a25597e74cce358b7b",
+    "revision": "43745c084081075d552592bbad04b8ef",
     "url": "/bobw-task/index.html"
   },
   {
-    "revision": "c90ecd55f14fa534c92d",
+    "revision": "81892645aa1312701e95",
     "url": "/bobw-task/static/css/2.19b7558e.chunk.css"
   },
   {
-    "revision": "d042b36fbf8a9fdaede5",
-    "url": "/bobw-task/static/css/main.1ada8eb8.chunk.css"
+    "revision": "c01376c7429de257365a",
+    "url": "/bobw-task/static/css/main.a0202f06.chunk.css"
   },
   {
-    "revision": "c90ecd55f14fa534c92d",
-    "url": "/bobw-task/static/js/2.548c65dc.chunk.js"
+    "revision": "81892645aa1312701e95",
+    "url": "/bobw-task/static/js/2.2ff6ce94.chunk.js"
   },
   {
-    "revision": "4441aef60e9c2e2e5e2527a1122ae9e4",
-    "url": "/bobw-task/static/js/2.548c65dc.chunk.js.LICENSE.txt"
+    "revision": "8dfa20a63fce49e4358024e787e59c2f",
+    "url": "/bobw-task/static/js/2.2ff6ce94.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d042b36fbf8a9fdaede5",
-    "url": "/bobw-task/static/js/main.567abc98.chunk.js"
+    "revision": "c01376c7429de257365a",
+    "url": "/bobw-task/static/js/main.ac846b06.chunk.js"
   },
   {
     "revision": "b7a6dc71ba484da46693",
