@@ -1,0 +1,23 @@
+@import '../../theme';
+
+.field {
+  display: block;
+  margin-top: spacing(3);
+}
+
+.input {
+  width: 100%;
+  border: 1px solid $primaryTextColor;
+  color: $primaryTextColor;
+  font-size: 14px;
+  padding: 14px 18px;
+}
+
+.error {
+  font-size: 14px;
+  color: #dc0c0c;
+}
+
+.inputError {
+  border: 1px solid #dc0c0c;
+}

@@ -1,0 +1,36 @@
+@import '../../theme';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.closeIcon {
+  cursor: pointer;
+}
+
+.title {
+  color: $primaryTextColor;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 39px;
+}
+
+:global {
+  .ReactModal__Body--open {
+    overflow: hidden;
+  }
+
+  .ReactModal__Content {
+    background-color: $white;
+    padding: spacing(4) !important;
+    overflow-x: auto;
+    height: 100%;
+    width: 100%;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      width: 505px;
+      height: auto;
+    }
+  }
+}

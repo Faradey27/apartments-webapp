@@ -95,7 +95,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       >
         <span>
           {fromDate
-            ? toMomentObject(fromDate)?.format('DD MMMM YYYY')
+            ? toMomentObject(fromDate)?.format('DD MMM YY')
             : intl.formatMessage(messages.startDate)}
         </span>
         <Icon
@@ -105,7 +105,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
         />
         <span>
           {toDate
-            ? toMomentObject(toDate)?.format('DD MMMM YYYY')
+            ? toMomentObject(toDate)?.format('DD MMM YY')
             : intl.formatMessage(messages.endDate)}
         </span>
       </div>
