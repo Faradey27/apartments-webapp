@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { memo, useMemo } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import styles from './ApartmentsCard.module.scss';
 import ApartmentsTitle from '../ApartmentsTitle';
@@ -20,9 +20,15 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
   name,
   location,
 }) => {
+  const historyLocation = useLocation();
+  const nextLocation = useMemo(
+    () => ({ ...historyLocation, pathname: `/apartments/${id}` }),
+    [historyLocation, id]
+  );
+
   return (
     <article className={styles.root}>
-      <Link to={`/apartments/${id}`} className={styles.imageContent}>
+      <Link to={nextLocation} className={styles.imageContent}>
         <img src={image} className={styles.image} />
       </Link>
       <ApartmentsTitle name={name} capacity={capacity} location={location} />

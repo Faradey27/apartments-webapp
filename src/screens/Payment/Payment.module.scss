@@ -2,41 +2,30 @@
 
 .metadata {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   margin-top: spacing(3);
 }
 
-.price {
-  font-weight: 500;
-  font-size: 30px;
-  color: $primaryTextColor;
-}
-
-.duration {
-  font-weight: 500;
-  font-size: 18px;
-  color: #7a7a7a;
-  margin-left: spacing(1);
-  display: none;
-
-  @media screen and (min-width: $breakpoint-tablet) {
-    display: inline;
-  }
+.priceWidget {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .date {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0;
   color: $primaryTextColor;
   min-width: 140px;
   font-size: 14px;
   cursor: pointer;
+  color: #777777;
 }
 
 .arrowRightIcon {
   path {
-    fill: $primaryTextColor;
+    fill: #777777;
   }
 }

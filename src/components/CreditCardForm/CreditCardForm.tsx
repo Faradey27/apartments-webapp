@@ -10,6 +10,9 @@ import {
 
 import styles from './CreditCardForm.module.scss';
 import CreditCardField from './CreditCardField';
+import { Price } from '../../api';
+import { toMomentObject } from '../DatePicker/DatePicker';
+import { useQuery } from '../../hooks/useQuery';
 
 interface Fields {
   fullName: string;
@@ -48,14 +51,23 @@ const validateForm = (values: Fields) => {
   return errors;
 };
 
-const CreditCardForm = () => {
+interface CreditCardFormProps {
+  price: Price;
+}
+
+const CreditCardForm: React.FC<CreditCardFormProps> = ({ price }) => {
   const history = useHistory();
-  const [mask, setMask] = React.useState('0000-0000-0000-0000');
+  const query = useQuery();
 
   const handleFormSubmit = useCallback((values: Fields, { setSubmitting }) => {
     setSubmitting(false);
     history.push('/apartments/2/thank-you');
   }, []);
+
+  const fromDate = toMomentObject(query.get('fromDate'));
+  const toDate = toMomentObject(query.get('toDate'));
+
+  const days = toDate?.diff(fromDate, 'days') || 1;
 
   return (
     <Formik
@@ -119,7 +131,9 @@ const CreditCardForm = () => {
             />
           </div>
           <button className={styles.pay} type="submit">
-            {isSubmitting ? 'Loading...' : 'Pay 67$'}
+            {isSubmitting
+              ? 'Loading...'
+              : `Pay ${price.value * days}${price.currency}`}
           </button>
         </form>
       )}

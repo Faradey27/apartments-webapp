@@ -12,6 +12,7 @@ import theme from '../../theme.scss';
 import { useQuery } from '../../hooks/useQuery';
 import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
+import { DatePickerInput } from '.';
 
 interface DatePickerProps {
   type?: 'light' | 'dark';
@@ -29,7 +30,7 @@ const messages = defineMessages({
   },
 });
 
-const toMomentObject = (unixTimestamp: string | null) => {
+export const toMomentObject = (unixTimestamp: string | null) => {
   if (!unixTimestamp) {
     return null;
   }
@@ -54,14 +55,14 @@ const DatePicker: React.FC<DatePickerProps> = ({
     maxWidth: parseInt(theme['breakpoints-tablet']),
   });
 
-  const handleOpenCalendar = useCallback((e) => {
+  const handleOpenCalendar = useCallback(() => {
     setCalendarState((prevState) => !prevState);
-    e.stopPropagation();
   }, []);
-  const handleCloseCalendar = useCallback((e) => {
+
+  const handleCloseCalendar = useCallback(() => {
     setCalendarState(false);
-    e.stopPropagation();
   }, []);
+
   const handleFocusChange = useCallback((res) => {
     setFocusedInput(res);
   }, []);
@@ -88,27 +89,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   return (
     <div className={clsx(styles.root, styles[type], styles[position])}>
-      <div
-        role="button"
-        className={styles.dateInput}
-        onClick={handleOpenCalendar}
-      >
-        <span>
-          {fromDate
-            ? toMomentObject(fromDate)?.format('DD MMM YY')
-            : intl.formatMessage(messages.startDate)}
-        </span>
-        <Icon
-          width="24"
-          iconName={IconName.arrowRight}
-          className={styles.arrowRightIcon}
-        />
-        <span>
-          {toDate
-            ? toMomentObject(toDate)?.format('DD MMM YY')
-            : intl.formatMessage(messages.endDate)}
-        </span>
-      </div>
+      <DatePickerInput onClick={handleOpenCalendar} />
       <div className={styles.calendar}>
         {isCalendarVisible ? (
           <DayPickerRangeController

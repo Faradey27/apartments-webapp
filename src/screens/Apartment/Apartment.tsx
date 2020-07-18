@@ -124,7 +124,7 @@ const Apartment = () => {
           </div>
         </div>
         <div>
-          <BookWidget />
+          <BookWidget price={apartmentsDetails.price} />
         </div>
       </div>
     </main>

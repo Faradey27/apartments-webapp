@@ -1,12 +1,16 @@
 import React, { memo, useCallback } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import styles from './Payment.module.scss';
-import Icon, { IconName } from '../../components/Icon';
 import CreditCardForm from '../../components/CreditCardForm';
 import Dialog from '../../components/Dialog';
 import { Helmet } from 'react-helmet';
+import { DatePickerInput } from '../../components/DatePicker';
+import PriceWidget from '../../components/PriceWidget';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../state/reducer';
+import { selectApartmentsDetails } from '../../state/apartments';
 
 const messages = defineMessages({
   pageTitle: {
@@ -18,10 +22,15 @@ const messages = defineMessages({
 const Payment = () => {
   const intl = useIntl();
   const history = useHistory();
+  const { id } = useParams();
 
   const handleClose = useCallback(() => {
-    history.push('/apartments/2');
+    history.goBack();
   }, [history]);
+
+  const apartmentsDetails = useSelector((state: RootState) =>
+    selectApartmentsDetails(state, id)
+  );
 
   return (
     <Dialog title="BOOK CENTRAL DESIGN STUDIO HOME" onClose={handleClose}>
@@ -29,21 +38,16 @@ const Payment = () => {
         <title>{intl.formatMessage(messages.pageTitle)}</title>
       </Helmet>
       <div className={styles.metadata}>
-        <div>
-          <span className={styles.price}>67$</span>
-          <span className={styles.duration}>for 1 night</span>
-        </div>
-        <div className={styles.date}>
-          <span>24 July</span>
-          <Icon
-            width="24"
-            iconName={IconName.arrowRight}
-            className={styles.arrowRightIcon}
-          />
-          <span>25 July</span>
-        </div>
+        <PriceWidget
+          price={apartmentsDetails.price}
+          className={styles.priceWidget}
+        />
+        <DatePickerInput
+          className={styles.date}
+          iconClassName={styles.arrowRightIcon}
+        />
       </div>
-      <CreditCardForm />
+      <CreditCardForm price={apartmentsDetails.price} />
     </Dialog>
   );
 };

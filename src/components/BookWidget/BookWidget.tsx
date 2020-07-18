@@ -1,30 +1,38 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import styles from './BookWidget.module.scss';
 import DatePicker from '../DatePicker';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../theme.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import PriceWidget from '../PriceWidget';
+import { Price } from '../../api';
 
-interface BookWidgetProps {}
+interface BookWidgetProps {
+  price: Price;
+}
 
-const BookWidget: React.FC<BookWidgetProps> = () => {
+const BookWidget: React.FC<BookWidgetProps> = ({ price }) => {
   const isTabletOrMobileScreen = useMediaQuery({
     maxWidth: parseInt(theme['breakpoints-tabletl']),
   });
+  const historyLocation = useLocation();
+  const { id } = useParams();
+
+  const nextLocation = useMemo(
+    () => ({ ...historyLocation, pathname: `/apartments/${id}/payment` }),
+    [historyLocation, id]
+  );
 
   return (
     <div className={styles.root}>
-      <div className={styles.header}>
-        <span className={styles.price}>67$</span>
-        <span className={styles.duration}>for 1 night</span>
-      </div>
+      <PriceWidget price={price} />
       <DatePicker
         type="dark"
         position={isTabletOrMobileScreen ? 'top' : 'right'}
       />
-      <Link to="/apartments/2/payment">
-        <button className={styles.bookNow}>Book bookNow</button>
+      <Link to={nextLocation}>
+        <button className={styles.bookNow}>Book now</button>
       </Link>
     </div>
   );

@@ -7,18 +7,30 @@
       "capacity": 2,
       "location": "Telliskivi, Tallinn",
       "available": true,
+      "price": {
+        "value": 24,
+        "currency": "$"
+      },
       "image": "https://assets.website-files.com/5e395796159b58694fe1232c/5e6a94993745e4c24571dcb2_S2T%20(%2341)%20BobW_Telliskivi%20(20%20of%20155)%20(3)%20(1)%20(1).jpg"
     },
     {
       "id": 2,
       "name": "Vibrant Studio Home With Terrace",
       "capacity": 3,
+      "price": {
+        "value": 36,
+        "currency": "$"
+      },
       "location": "Telliskivi, Tallinn",
       "available": false,
       "image": "https://assets.website-files.com/5e395796159b58694fe1232c/5e6a978030bb15dc74d49445_S2T%20(%2341)%20BobW_Telliskivi%20(25%20of%20155)%20(1)%20(1).jpg"
     },
     {
       "id": 3,
+      "price": {
+        "value": 67,
+        "currency": "$"
+      },
       "name": "Spacious Studio Home",
       "capacity": 2,
       "location": "Telliskivi, Tallinn",
@@ -27,6 +39,10 @@
     },
     {
       "id": 4,
+      "price": {
+        "value": 67,
+        "currency": "$"
+      },
       "name": "Smart Buddy Studio",
       "capacity": 3,
       "location": "Telliskivi, Tallinn",
@@ -35,6 +51,10 @@
     },
     {
       "id": 5,
+      "price": {
+        "value": 67,
+        "currency": "$"
+      },
       "name": "Swanky 1-Bedroom Suite",
       "capacity": 4,
       "location": "Telliskivi, Tallinn",
@@ -43,6 +63,10 @@
     },
     {
       "id": 6,
+      "price": {
+        "value": 67,
+        "currency": "$"
+      },
       "name": "Spacious Studio Home With Terrace",
       "capacity": 3,
       "location": "Telliskivi, Tallinn",
@@ -51,6 +75,10 @@
     },
     {
       "id": 7,
+      "price": {
+        "value": 67,
+        "currency": "$"
+      },
       "name": "Smart Buddy Studio With Terrace",
       "capacity": 2,
       "location": "Telliskivi, Tallinn",

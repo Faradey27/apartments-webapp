@@ -1,0 +1,19 @@
+@import '../../theme.scss';
+
+.header {
+  margin-top: spacing(5);
+  margin-bottom: spacing(2);
+}
+
+.price {
+  font-weight: 500;
+  font-size: 30px;
+  color: $primaryTextColor;
+}
+
+.duration {
+  font-weight: 500;
+  font-size: 18px;
+  color: #7a7a7a;
+  margin-left: spacing(1);
+}
