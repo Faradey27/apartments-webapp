@@ -18,4 +18,10 @@ $breakpoint-laptopL: 1440px;
 
 :export {
   white: $white;
+  breakpoints: {
+    mobile: $breakpoint-mobile;
+    tablet: $breakpoint-tablet;
+    tabletl: $breakpoint-tabletL;
+    laptopl: $breakpoint-laptopL;
+  }
 }

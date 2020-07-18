@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from './assets/logo.svg';
+import { DateRangePicker, DayPickerRangeController } from 'react-dates';
 
 import styles from './IntroSection.module.scss';
 import { defineMessages, useIntl } from 'react-intl';
+import DatePicker from '../DatePicker';
 
 const messages = defineMessages({
   title: {
@@ -16,10 +16,13 @@ const IntroSection: React.FC = () => {
   const intl = useIntl();
 
   return (
-    <article className={styles.root}>
+    <section className={styles.root}>
       <div className={styles.image} />
-      <h1 className={styles.title}>{intl.formatMessage(messages.title)}</h1>
-    </article>
+      <div className={styles.content}>
+        <h1 className={styles.title}>{intl.formatMessage(messages.title)}</h1>
+        <DatePicker />
+      </div>
+    </section>
   );
 };
 

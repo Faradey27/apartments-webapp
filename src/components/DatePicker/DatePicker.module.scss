@@ -1,0 +1,41 @@
+@import '../../theme.scss';
+
+.root {
+  position: relative;
+}
+
+.dateInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 200px;
+  margin-top: spacing(3);
+  padding: spacing(1.5) spacing(3);
+  border: 1px solid $white;
+  color: $white;
+  font-size: 14px;
+  cursor: pointer;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    min-width: 272px;
+  }
+}
+
+.calendar {
+  position: absolute;
+  top: spacing(10);
+  transform: translateX(-50%);
+  margin-left: 50%;
+  left: 0;
+  z-index: 1;
+
+  @media screen and (min-width: $breakpoint-tabletL) {
+    transform: translateX(0);
+    margin-left: 0;
+  }
+}
+
+.arrowRightIcon {
+  margin-left: spacing(3);
+  margin-right: spacing(3);
+}

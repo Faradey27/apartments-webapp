@@ -15,6 +15,13 @@
   }
 }
 
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .image {
   position: absolute;
   left: 0;
@@ -45,5 +52,34 @@
 
   @media screen and (min-width: $breakpoint-tablet) {
     font-size: 35px;
+  }
+}
+
+.root {
+  :global {
+    .DateRangePickerInput,
+    .DateInput,
+    .DateInput_input {
+      background-color: transparent;
+    }
+
+    .DateInput_input {
+      color: $white;
+
+      &::placeholder {
+        color: $white;
+      }
+    }
+
+    .DateRangePickerInput_arrow_svg {
+      fill: $white;
+      // margin-right: spacing(1);
+      // margin-left: spacing(-1);
+    }
+
+    .DateRangePickerInput__withBorder {
+      border-radius: 0;
+      border: 1px solid $white;
+    }
   }
 }
