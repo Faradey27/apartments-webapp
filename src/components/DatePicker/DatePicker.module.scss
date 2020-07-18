@@ -9,7 +9,6 @@
   align-items: center;
   justify-content: space-between;
   min-width: 200px;
-  margin-top: spacing(3);
   padding: spacing(1.5) spacing(3);
   border: 1px solid $white;
   color: $white;
@@ -38,4 +37,35 @@
 .arrowRightIcon {
   margin-left: spacing(3);
   margin-right: spacing(3);
+}
+
+.right {
+  .calendar {
+    left: auto;
+    right: 0;
+  }
+}
+
+.top {
+  .calendar {
+    top: -540px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      top: -350px;
+      left: 0;
+    }
+  }
+}
+
+.dark {
+  .dateInput {
+    border: 1px solid $primaryTextColor;
+    color: $primaryTextColor;
+  }
+
+  .arrowRightIcon {
+    path {
+      fill: $primaryTextColor;
+    }
+  }
 }

@@ -11,8 +11,12 @@ import { useMediaQuery } from 'react-responsive';
 import theme from '../../theme.scss';
 import { useQuery } from '../../hooks/useQuery';
 import { useHistory } from 'react-router-dom';
+import clsx from 'clsx';
 
-interface DatePickerProps {}
+interface DatePickerProps {
+  type?: 'light' | 'dark';
+  position?: 'top' | 'left' | 'right';
+}
 
 const messages = defineMessages({
   startDate: {
@@ -33,7 +37,10 @@ const toMomentObject = (unixTimestamp: string | null) => {
   return moment(date);
 };
 
-const DatePicker: React.FC<DatePickerProps> = () => {
+const DatePicker: React.FC<DatePickerProps> = ({
+  type = 'light',
+  position = 'left',
+}) => {
   const intl = useIntl();
   const history = useHistory();
   const [isCalendarVisible, setCalendarState] = useState(false);
@@ -47,14 +54,20 @@ const DatePicker: React.FC<DatePickerProps> = () => {
     maxWidth: parseInt(theme['breakpoints-tablet']),
   });
 
-  const handleOpenCalendar = useCallback(() => setCalendarState(true), []);
-  const handleCloseCalendar = useCallback(() => setCalendarState(false), []);
-  const handleFocusChange = useCallback((res, ...args) => {
+  const handleOpenCalendar = useCallback((e) => {
+    setCalendarState((prevState) => !prevState);
+    e.stopPropagation();
+  }, []);
+  const handleCloseCalendar = useCallback((e) => {
+    setCalendarState(false);
+    e.stopPropagation();
+  }, []);
+  const handleFocusChange = useCallback((res) => {
     setFocusedInput(res);
   }, []);
 
   const handleDatesChange = useCallback(
-    ({ startDate, endDate, ...args }) => {
+    ({ startDate, endDate }) => {
       // TODO set proper types
       const query: any = {};
 
@@ -74,7 +87,7 @@ const DatePicker: React.FC<DatePickerProps> = () => {
   );
 
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root, styles[type], styles[position])}>
       <div
         role="button"
         className={styles.dateInput}

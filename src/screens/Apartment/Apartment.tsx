@@ -12,6 +12,7 @@ import {
 
 import styles from './Apartment.module.scss';
 import Icon, { IconName } from '../../components/Icon';
+import BookWidget from '../../components/BookWidget';
 
 const messages = defineMessages({
   pageTitle: {
@@ -123,7 +124,7 @@ const Apartment = () => {
           </div>
         </div>
         <div>
-          <Link to="/payment">Book now</Link>
+          <BookWidget />
         </div>
       </div>
     </main>
