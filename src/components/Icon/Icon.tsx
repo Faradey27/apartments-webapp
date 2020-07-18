@@ -11,6 +11,7 @@ import { ReactComponent as KeylessIcon } from './assets/keyless.svg';
 import { ReactComponent as LocalIcon } from './assets/local.svg';
 import { ReactComponent as RestedIcon } from './assets/rested.svg';
 import { ReactComponent as SustainableIcon } from './assets/sustainable.svg';
+import { ReactComponent as CloseIcon } from './assets/close.svg';
 
 export enum IconName {
   d3 = 'd3',
@@ -24,6 +25,7 @@ export enum IconName {
   local = 'local',
   rested = 'rested',
   sustainable = 'sustainable',
+  close = 'close',
 }
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -45,6 +47,7 @@ const IconsMap: {
   local: LocalIcon,
   rested: RestedIcon,
   sustainable: SustainableIcon,
+  close: CloseIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconName, className, ...svgProps }) => {

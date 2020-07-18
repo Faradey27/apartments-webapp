@@ -1,0 +1,71 @@
+@import '../../theme';
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  padding: spacing(4);
+  overflow-x: auto;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 505px;
+    height: 553px;
+  }
+}
+
+.thankYou {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: spacing(16);
+}
+
+.thankYouTitle {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: spacing(3);
+}
+
+.description {
+  max-width: 280px;
+  text-align: center;
+  margin-top: spacing(1.5);
+  font-size: 16px;
+}
+
+.title {
+  color: $primaryTextColor;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 39px;
+}
+
+.titleWrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.closeIcon {
+  cursor: pointer;
+}
+
+:global {
+  .ReactModal__Body--open {
+    overflow: hidden;
+  }
+}

@@ -4,6 +4,7 @@ import styles from './BookWidget.module.scss';
 import DatePicker from '../DatePicker';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../theme.scss';
+import { Link } from 'react-router-dom';
 
 interface BookWidgetProps {}
 
@@ -22,7 +23,9 @@ const BookWidget: React.FC<BookWidgetProps> = () => {
         type="dark"
         position={isTabletOrMobileScreen ? 'top' : 'right'}
       />
-      <button className={styles.bookNow}>Book Now</button>
+      <Link to="/apartments/2/payment">
+        <button className={styles.bookNow}>Book bookNow</button>
+      </Link>
     </div>
   );
 };

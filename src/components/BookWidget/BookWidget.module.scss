@@ -14,6 +14,7 @@
   @media screen and (min-width: $breakpoint-tabletL) {
     position: sticky;
     top: spacing(5);
+    margin-top: spacing(5);
     width: auto;
     padding: 0;
     border: none;
@@ -45,4 +46,5 @@
   min-width: 272px;
   height: 46px;
   margin-top: spacing(2);
+  cursor: pointer;
 }

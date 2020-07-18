@@ -14,17 +14,16 @@ const App: React.FC<{}> = () => {
       <Router>
         <HeaderBar />
         <Switch>
-          <Route path="/apartments/:id">
+          <Route path="/apartments/:id/thank-you">
             <Apartment />
+            <ThankYou />
           </Route>
-          <Route path="/apartments">
-            <Apartments />
-          </Route>
-          <Route path="/payment">
+          <Route path="/apartments/:id/payment">
+            <Apartment />
             <Payment />
           </Route>
-          <Route path="/thank-you">
-            <ThankYou />
+          <Route path="/apartments/:id">
+            <Apartment />
           </Route>
           <Route path="/">
             <Apartments />
