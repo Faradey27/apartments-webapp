@@ -10,6 +10,7 @@ import ApartmentsCard from '../../components/ApartmentsCard';
 import IntroSection from '../../components/IntroSection';
 
 import styles from './Apartments.module.scss';
+import { useQuery } from '../../hooks/useQuery';
 
 const messages = defineMessages({
   pageTitle: {
@@ -23,9 +24,13 @@ const Apartments = () => {
   const dispatch = useDispatch();
   const apartments = useSelector(selectApartments);
 
+  const query = useQuery();
+  const fromDate = query.get('fromDate');
+  const toDate = query.get('toDate');
+
   useEffect(() => {
-    dispatch(fetchApartmentsAction());
-  }, [dispatch]);
+    dispatch(fetchApartmentsAction(fromDate, toDate));
+  }, [dispatch, fromDate, toDate]);
 
   return (
     <main>
@@ -42,6 +47,7 @@ const Apartments = () => {
             capacity={apartment.capacity}
             location={apartment.location}
             image={apartment.image}
+            price={apartment.price}
           />
         ))}
       </div>

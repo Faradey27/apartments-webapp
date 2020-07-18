@@ -18,6 +18,13 @@ export const fetchApartmentsDetailsAsyncAction = createAsyncAction(
   { error: Error; id: number }
 >();
 
+export const bookApartmentsAsyncAction = createAsyncAction(
+  '@apartments/BOOK_APARTMENTS_REQUEST',
+  '@apartments/BOOK_APARTMENTS_SUCCESS',
+  '@apartments/BOOK_APARTMENTS_FAILURE'
+)<number, number, { error: Error; id: number }>();
+
 export type ApartmentsAction =
   | ActionType<typeof fetchApartmentsAsyncAction>
+  | ActionType<typeof bookApartmentsAsyncAction>
   | ActionType<typeof fetchApartmentsDetailsAsyncAction>;

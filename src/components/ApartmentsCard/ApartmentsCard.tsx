@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './ApartmentsCard.module.scss';
 import ApartmentsTitle from '../ApartmentsTitle';
 import Icon, { IconName } from '../Icon';
+import { Price } from '../../api';
 
 interface ApartmentsCardProps {
   id: number;
@@ -11,6 +12,7 @@ interface ApartmentsCardProps {
   name: string;
   capacity: number;
   location: string;
+  price: Price;
 }
 
 const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
@@ -19,6 +21,7 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
   capacity,
   name,
   location,
+  price,
 }) => {
   const historyLocation = useLocation();
   const nextLocation = useMemo(
@@ -32,15 +35,18 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
         <img src={image} className={styles.image} />
       </Link>
       <ApartmentsTitle name={name} capacity={capacity} location={location} />
-      <Link to="/" className={styles.visualize}>
-        <Icon iconName={IconName.d3} width={24} className={styles.pinIcon} />
-        <span className={styles.visualizeText}>3D Virtual Tour</span>
-      </Link>
+      <div className={styles.price}>
+        <span className={styles.priceText}>
+          {price.value}
+          {price.currency}
+        </span>
+        <span>Per night</span>
+      </div>
       <div className={styles.footer}>
-        <Link to="/" className={styles.bookNow}>
+        <Link to={nextLocation} className={styles.bookNow}>
           Book Now
         </Link>
-        <Link to="/" className={styles.learnMore}>
+        <Link to={nextLocation} className={styles.learnMore}>
           Learn more
         </Link>
       </div>

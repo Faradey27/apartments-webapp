@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Formik } from 'formik';
 
 import {
@@ -13,6 +13,8 @@ import CreditCardField from './CreditCardField';
 import { Price } from '../../api';
 import { toMomentObject } from '../DatePicker/DatePicker';
 import { useQuery } from '../../hooks/useQuery';
+import { useDispatch } from 'react-redux';
+import { bookApartmentsAction } from '../../state/apartments';
 
 interface Fields {
   fullName: string;
@@ -58,16 +60,29 @@ interface CreditCardFormProps {
 const CreditCardForm: React.FC<CreditCardFormProps> = ({ price }) => {
   const history = useHistory();
   const query = useQuery();
-
-  const handleFormSubmit = useCallback((values: Fields, { setSubmitting }) => {
-    setSubmitting(false);
-    history.push('/apartments/2/thank-you');
-  }, []);
-
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const fromDate = toMomentObject(query.get('fromDate'));
   const toDate = toMomentObject(query.get('toDate'));
 
   const days = toDate?.diff(fromDate, 'days') || 1;
+
+  const handleFormSubmit = useCallback(
+    async (values: Fields, { setSubmitting }) => {
+      // TODO remove await, side effect should happen inside async action
+      await dispatch(
+        bookApartmentsAction({
+          id,
+          fromDate: String(fromDate?.unix()),
+          toDate: String(toDate?.unix()),
+          ...values,
+        })
+      );
+      setSubmitting(false);
+      history.push('/apartments/2/thank-you');
+    },
+    [id]
+  );
 
   return (
     <Formik
@@ -97,6 +112,7 @@ const CreditCardForm: React.FC<CreditCardFormProps> = ({ price }) => {
           <CreditCardField
             name="cardNumber"
             label="Card number"
+            iconRight={validateCardNumber(values.cardNumber).card?.type}
             value={values.cardNumber}
             maskChar="X"
             mask="0000-0000-0000-0000"

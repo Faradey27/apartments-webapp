@@ -80,7 +80,7 @@
   grid-auto-columns: 1fr;
 }
 
-.visualize {
+.price {
   display: flex;
   width: 100%;
   padding-top: spacing(2);
@@ -92,8 +92,9 @@
   font-size: 13px;
 }
 
-.visualizeText {
-  margin-left: spacing(3);
+.priceText {
+  font-size: 24px;
+  margin-right: spacing(1);
 }
 
 .bookNow,

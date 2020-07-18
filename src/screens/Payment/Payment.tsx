@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -8,9 +8,12 @@ import Dialog from '../../components/Dialog';
 import { Helmet } from 'react-helmet';
 import { DatePickerInput } from '../../components/DatePicker';
 import PriceWidget from '../../components/PriceWidget';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../state/reducer';
-import { selectApartmentsDetails } from '../../state/apartments';
+import {
+  selectApartmentsDetails,
+  fetchApartmentsDetailsAction,
+} from '../../state/apartments';
 
 const messages = defineMessages({
   pageTitle: {
@@ -21,6 +24,7 @@ const messages = defineMessages({
 
 const Payment = () => {
   const intl = useIntl();
+  const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
 
@@ -31,6 +35,16 @@ const Payment = () => {
   const apartmentsDetails = useSelector((state: RootState) =>
     selectApartmentsDetails(state, id)
   );
+
+  useEffect(() => {
+    if (!apartmentsDetails) {
+      dispatch(fetchApartmentsDetailsAction(id));
+    }
+  }, [apartmentsDetails, dispatch, id]);
+
+  if (!apartmentsDetails) {
+    return null;
+  }
 
   return (
     <Dialog title="BOOK CENTRAL DESIGN STUDIO HOME" onClose={handleClose}>
