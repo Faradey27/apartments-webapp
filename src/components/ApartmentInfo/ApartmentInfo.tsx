@@ -2,16 +2,16 @@ import React, { memo } from 'react';
 import clsx from 'clsx';
 
 import Icon, { IconName } from '../Icon';
-import styles from './ApartmentsTitle.module.scss';
+import styles from './ApartmentInfo.module.scss';
 
-interface ApartmentsTitleProps {
+interface ApartmentInfoProps {
   name: string;
   capacity: number;
   location: string;
   size?: 'small' | 'large';
 }
 
-const ApartmentsTitle: React.FC<ApartmentsTitleProps> = ({
+const ApartmentInfo: React.FC<ApartmentInfoProps> = ({
   name,
   capacity,
   location,
@@ -34,4 +34,4 @@ const ApartmentsTitle: React.FC<ApartmentsTitleProps> = ({
   );
 };
 
-export default memo(ApartmentsTitle);
+export default memo(ApartmentInfo);

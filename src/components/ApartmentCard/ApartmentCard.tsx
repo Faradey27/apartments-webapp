@@ -3,10 +3,10 @@ import { defineMessages, useIntl } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Price } from '../../api';
-import ApartmentsTitle from '../ApartmentsTitle';
-import styles from './ApartmentsCard.module.scss';
+import ApartmentInfo from '../ApartmentInfo';
+import styles from './ApartmentCard.module.scss';
 
-interface ApartmentsCardProps {
+interface ApartmentCardProps {
   id: number;
   image: string;
   name: string;
@@ -17,20 +17,20 @@ interface ApartmentsCardProps {
 
 const messages = defineMessages({
   bookNow: {
-    id: 'apartmentsCard.bookNow',
+    id: 'apartmentCard.bookNow',
     defaultMessage: 'Book Now',
   },
   learnMore: {
-    id: 'apartmentsCard.learnMore',
+    id: 'apartmentCard.learnMore',
     defaultMessage: 'Learn More',
   },
   perNight: {
-    id: 'apartmentsCard.perNight',
-    defaultMessage: 'Per night',
+    id: 'apartmentCard.perNight',
+    defaultMessage: 'per night',
   },
 });
 
-const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
+const ApartmentCard: React.FC<ApartmentCardProps> = ({
   id,
   image,
   capacity,
@@ -50,7 +50,7 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
       <Link to={nextLocation} className={styles.imageContent}>
         <img src={image} className={styles.image} alt="" />
       </Link>
-      <ApartmentsTitle name={name} capacity={capacity} location={location} />
+      <ApartmentInfo name={name} capacity={capacity} location={location} />
       <div className={styles.price}>
         <span className={styles.priceText}>
           {price.value}
@@ -70,4 +70,4 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
   );
 };
 
-export default memo(ApartmentsCard);
+export default memo(ApartmentCard);

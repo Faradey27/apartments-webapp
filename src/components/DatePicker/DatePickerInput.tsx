@@ -30,6 +30,8 @@ interface DatePickerInputProps {
   error?: string;
   iconClassName?: string;
   className?: string;
+  focusedInput?: 'startDate' | 'endDate';
+  setFocusedInput?: (type: 'startDate' | 'endDate') => void;
   onClick?: () => void;
 }
 
@@ -37,6 +39,8 @@ const DatePickerInput: React.FC<DatePickerInputProps> = ({
   error,
   className,
   iconClassName,
+  focusedInput,
+  setFocusedInput,
   onClick,
 }) => {
   const intl = useIntl();
@@ -48,26 +52,38 @@ const DatePickerInput: React.FC<DatePickerInputProps> = ({
     <>
       <div
         role="button"
-        className={clsx(styles.dateInput, className, {
+        className={clsx(styles.dateInputWrapper, className, {
           [styles.inputError]: error,
         })}
         onClick={onClick}
       >
-        <span>
+        <div
+          role="button"
+          className={clsx(styles.dateInput, {
+            [styles.dateInputFocused]: focusedInput === 'startDate',
+          })}
+          onClick={() => setFocusedInput?.('startDate')}
+        >
           {fromDate
             ? toMomentObject(fromDate)?.format('DD MMM YY')
             : intl.formatMessage(messages.startDate)}
-        </span>
+        </div>
         <Icon
           width="24"
           iconName={IconName.arrowRight}
           className={clsx(styles.arrowRightIcon, iconClassName)}
         />
-        <span>
+        <div
+          role="button"
+          className={clsx(styles.dateInput, {
+            [styles.dateInputFocused]: focusedInput === 'endDate',
+          })}
+          onClick={() => setFocusedInput?.('endDate')}
+        >
           {toDate
             ? toMomentObject(toDate)?.format('DD MMM YY')
             : intl.formatMessage(messages.endDate)}
-        </span>
+        </div>
       </div>
       {error && <span className={styles.error}>{error}</span>}
     </>

@@ -3,7 +3,8 @@
 .field {
   position: relative;
   display: block;
-  margin-top: spacing(3);
+  margin-top: spacing(2.5);
+  font-weight: 500;
 }
 
 .input {
@@ -12,6 +13,10 @@
   color: $primaryTextColor;
   font-size: 14px;
   padding: 14px 18px;
+}
+
+.inputWrapper {
+  position: relative;
 }
 
 .error {
@@ -23,8 +28,9 @@
   border: 1px solid $errorColor;
 }
 
-.iconRight {
+.suffix {
   position: absolute;
   right: spacing(3);
-  top: 33px;
+  top: 50%;
+  transform: translateY(-50%);
 }

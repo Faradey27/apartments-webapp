@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { defineMessages, useIntl } from 'react-intl';
 import clsx from 'clsx';
 
 import { Price } from '../../api';
@@ -11,8 +12,16 @@ interface PriceWidgetProps {
   price: Price;
 }
 
+const messages = defineMessages({
+  duration: {
+    id: 'priceWidget.duration',
+    defaultMessage: 'for {value} {value, plural, one{night} other{nights}}',
+  },
+});
+
 const PriceWidget: React.FC<PriceWidgetProps> = ({ price, className }) => {
   const query = useQuery();
+  const intl = useIntl();
 
   const fromDate = toMomentObject(query.get('fromDate'));
   const toDate = toMomentObject(query.get('toDate'));
@@ -25,7 +34,9 @@ const PriceWidget: React.FC<PriceWidgetProps> = ({ price, className }) => {
         {price.value * days}
         {price.currency}
       </span>
-      <span className={styles.duration}>for {days} night</span>
+      <span className={styles.duration}>
+        {intl.formatMessage(messages.duration, { value: days })}
+      </span>
     </div>
   );
 };

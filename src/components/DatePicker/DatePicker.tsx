@@ -53,6 +53,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
     setFocusedInput(res);
   }, []);
 
+  const isDayBlocked = (day: any) => moment(day).isBefore(Date.now());
+
   const handleDatesChange = useCallback(
     ({ startDate, endDate }) => {
       // TODO set proper types
@@ -75,11 +77,18 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   return (
     <div className={clsx(styles.root, styles[type], styles[position])}>
-      <DatePickerInput error={error} onClick={handleOpenCalendar} />
+      <DatePickerInput
+        error={error}
+        focusedInput={isCalendarVisible ? focusedInput : undefined}
+        setFocusedInput={setFocusedInput}
+        onClick={handleOpenCalendar}
+      />
       <div className={styles.calendar}>
         {isCalendarVisible ? (
           <DayPickerRangeController
             keepOpenOnDateSelect
+            noBorder
+            isDayBlocked={isDayBlocked}
             orientation={isTabletOrMobileScreen ? 'vertical' : 'horizontal'}
             startDate={toMomentObject(fromDate)}
             endDate={toMomentObject(toDate)}
@@ -87,6 +96,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
             onDatesChange={handleDatesChange}
             focusedInput={focusedInput}
             onFocusChange={handleFocusChange}
+            hideKeyboardShortcutsPanel
             numberOfMonths={2}
           />
         ) : null}

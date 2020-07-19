@@ -24,6 +24,7 @@ Deploys app to github pages
 Runs prettier which will autofix codebase
 
 ## Task
+
 > ETA 8 hours
 
 Create a simple browser application that would allow a user to book a hotel room (our hotel has
@@ -32,19 +33,24 @@ just three rooms) for one night.
 ### Main tasks:
 
 #### Booking date selection.
+
 - [x] Shows the interface to pick the booking date.
 - [x] Should be implemented with any datepicker of your choice.
 - [x] It should be possible to progress to the next stage when the date is picked.
+
 #### Room selection.
-- [x] Shows rooms list with room names and images. 
+
+- [x] Shows rooms list with room names and images.
 - [x] It should be possible to select one of the available rooms.
 - [x] Rooms are hardcoded with the JSON provided below.
 - [x] It should be possible to go back to the previous stage.
 - [x] It should be possible to progress to the next stage when the room is selected.
+
 #### Payment
+
 - [x] Shows the input for credit card number and an icon that shows the payment card network (Visa/Mastercard/Amex) depending on the credit card number entered.
 - [x] It should be possible to go back to the previous stage.
-- [x] It should be possible to finalize the booking once a valid credit card number is entered (validate with Luhn algorithm). 
+- [x] It should be possible to finalize the booking once a valid credit card number is entered (validate with Luhn algorithm).
 - [x] Request is sent to the endpoint POST http://localhost/booking and contains selected date, room id and credit card number.
 - [x] Success page
 
@@ -65,25 +71,26 @@ xpensive%20room"}]}
 - [x] Reload apartments after another date selected
 - [x] Use real API requests
 - [x] Calculate price for selected date range
-- [x] Show number of nights that user selected 
+- [x] Show number of nights that user selected
 
 ### Extra:
 
 - [x] Loading states
-- [x] Error states 
-- [x] Validations 
+- [x] Error states
+- [x] Validations
 
 ## Architecture
 
 ## General note
 
-In the begining I was thinking that for such type of projects the best 
-fit will be universal app(server side rendering on first visit + SPA after [read more](https://medium.com/capital-one-tech/why-everyone-is-talking-about-isomorphic-universal-javascript-and-why-it-matters-38c07c87905)).
+In the begining I was thinking that for such type of projects the best
+fit will be universal app (server side rendering on first visit + SPA after [read more](https://medium.com/capital-one-tech/why-everyone-is-talking-about-isomorphic-universal-javascript-and-why-it-matters-38c07c87905)).
 React JS has nice tool for this called [nextjs](https://nextjs.org/).
-But after some thinking I decided to implement simple SPA, because: 
- - it is test task and it should show general skills first, rather then frameworks details
- - nextjs provides own routing and requires a little bit different way to work with app state 
- - as task is timeboxed to 8 hours, with nextjs ETA will increase by 5-15%
+But after some thinking I decided to implement simple SPA, because:
+
+- it is test task and it should show general skills first, rather then frameworks details
+- nextjs provides own routing and requires a little bit different way to work with app state
+- as task is timeboxed to 8 hours, with nextjs ETA will increase by 5-15%
 
 ### View + data management
 
@@ -135,7 +142,6 @@ For side effects, I decided to use `redux-thunk` as most of our requests pretty 
 Main logic blocks of the app live in `screens` folder. I put here the main logic blocks of the app(pages/routes - each screen independent route). The idea is that screens are more "smart" components, use async redux actions to fetch data,
 then select this data, contain some business logic and redistribute all data to children. All non-reusable components and helper functions that screens use, are structured within the screen folder. This way it is easier to develop new functionality, as all the code is very close.
 
-
 ### Main decitions
 
 #### Styles
@@ -150,7 +156,6 @@ I decided not to use a pre-made components library. Here's why:
 
 Most styles are implemented from scratch with SASS and css modules (built in create-react-app). I activly used css-grid and scss variables
 to make better and consistent layouts.
-
 
 #### Internatiolalization amd localization
 
@@ -175,7 +180,6 @@ For code style I am using prettier and eslint from create-react-app.
 **Known issues:**
 
 **1. Accessibility**
-
 Unfortunately, I did not have time to make application fully accessible and test the accessibility. Where possible I tried to keep it in mind, but there's still a lot to improve
 
 **2. Hardcoded values**
@@ -195,8 +199,6 @@ I have tested the flow and tried to fix all the issues. But there's definitely s
 
 **Improvements:**
 
-**Improvements:**
-
 1. I'd like to have more tests and better overall coverage
 2. Use real API
 3. Do real filtering of apartments based on selected dates
@@ -204,6 +206,10 @@ I have tested the flow and tried to fix all the issues. But there's definitely s
 5. Make design more coherent
 6. Add documentation on components
 7. Better loading states
+8. Extract Button component
+9. Cleanup user experience(transitions, hovers, clicks, etc.)
+10. Universal app(server-side-rendering)
+11. Replace hardcoded texts with real from server
 
 ## Timetable
 

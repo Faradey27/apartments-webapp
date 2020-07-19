@@ -2,6 +2,7 @@ import React, { memo, ReactNode } from 'react';
 import clsx from 'clsx';
 
 import { RequestState } from '../../api';
+import EmptyState from '../EmptyState';
 import styles from './RequestStateVisualize.module.scss';
 
 interface RequestStateVisualizeProps {
@@ -20,7 +21,10 @@ const RequestStateVisualize: React.FC<RequestStateVisualizeProps> = ({
   }
   if (requestState === RequestState.failure) {
     return (
-      <div className={clsx(styles.error, className)}>Something went wrong</div>
+      <EmptyState
+        title="Something went wrong"
+        description="Try refreshing the page"
+      />
     );
   }
 

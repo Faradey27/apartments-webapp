@@ -4,8 +4,8 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 
 import Dialog from '../../components/Dialog';
-import Icon, { IconName } from '../../components/Icon';
-import styles from './ThankYou.module.scss';
+import EmptyState from '../../components/EmptyState';
+import { IconName } from '../../components/Icon';
 
 const messages = defineMessages({
   pageTitle: {
@@ -27,14 +27,11 @@ const ThankYou = () => {
       <Helmet>
         <title>{intl.formatMessage(messages.pageTitle)}</title>
       </Helmet>
-      <div className={styles.content}>
-        <Icon iconName={IconName.hosted} width={50} height={50} />
-        <p className={styles.title}>Thank You!</p>
-        <p className={styles.description}>
-          Payment was successful! Booking information is sent to your e-mail.
-          See you soon at Bob’s!
-        </p>
-      </div>
+      <EmptyState
+        iconName={IconName.hosted}
+        title="Thank you!"
+        description="Payment was successful! Booking information is sent to your e-mail. See you soon at Bob’s!"
+      />
     </Dialog>
   );
 };

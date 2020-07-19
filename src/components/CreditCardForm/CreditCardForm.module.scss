@@ -12,6 +12,12 @@
   height: 46px;
   margin-top: spacing(3);
   cursor: pointer;
+  transition: background-color linear 0.1s, color linear 0.1s;
+
+  &:hover {
+    background-color: $white;
+    color: $primaryTextColor;
+  }
 }
 
 .expiresAndCvv {

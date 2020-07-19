@@ -42,7 +42,7 @@
   grid-column-gap: 60px;
 
   @media screen and (min-width: $breakpoint-tabletL) {
-    grid-template-columns: 1fr 272px;
+    grid-template-columns: 1fr 280px;
   }
 }
 
@@ -52,12 +52,11 @@
 
 .d3tourTitle {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: spacing(2.5);
 
   @media screen and (min-width: $breakpoint-tablet) {
     font-size: 22px;
-    margin-bottom: spacing(5);
   }
 }
 

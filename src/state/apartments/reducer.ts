@@ -75,8 +75,11 @@ export const apartmentsReducer = (
     case getType(fetchApartmentsDetailsAsyncAction.failure): {
       return {
         ...state,
-        [action.payload.id]: {
-          requestState: RequestState.failure,
+        apartmentsDetails: {
+          ...state.apartmentsDetails,
+          [action.payload.id]: {
+            requestState: RequestState.failure,
+          },
         },
       };
     }

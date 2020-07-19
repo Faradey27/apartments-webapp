@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 
-import ApartmentsCard from '../../components/ApartmentsCard';
+import ApartmentCard from '../../components/ApartmentCard';
 import IntroSection from '../../components/IntroSection';
 import RequestStateVisualize from '../../components/RequestStateVisualize';
 import { useQuery } from '../../hooks/useQuery';
@@ -49,7 +49,7 @@ const Apartments = () => {
       <RequestStateVisualize requestState={apartemntsRequestState}>
         <div className={styles.content}>
           {apartments.map((apartment) => (
-            <ApartmentsCard
+            <ApartmentCard
               key={apartment.id}
               id={apartment.id}
               name={apartment.name}

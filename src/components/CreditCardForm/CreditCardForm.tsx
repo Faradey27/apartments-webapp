@@ -111,7 +111,7 @@ const CreditCardForm: React.FC<CreditCardFormProps> = ({ price }) => {
           <CreditCardField
             name="cardNumber"
             label="Card number"
-            iconRight={validateCardNumber(values.cardNumber).card?.type}
+            suffix={validateCardNumber(values.cardNumber).card?.type}
             value={values.cardNumber}
             maskChar="X"
             mask="0000-0000-0000-0000"

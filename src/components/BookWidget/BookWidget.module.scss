@@ -6,7 +6,7 @@
   bottom: 0px;
   left: 0;
   padding-left: 6vw;
-  padding-right: calc(6vw + 16px);
+  padding-right: calc(6vw + 10px);
   padding-bottom: spacing(3);
   border-top: 1px solid $lightGray;
   background-color: $white;
@@ -48,4 +48,10 @@
   height: 46px;
   margin-top: spacing(2);
   cursor: pointer;
+  transition: background-color linear 0.1s, color linear 0.1s;
+
+  &:hover {
+    background-color: $white;
+    color: $primaryTextColor;
+  }
 }

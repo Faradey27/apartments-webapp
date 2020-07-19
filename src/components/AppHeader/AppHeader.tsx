@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import Icon, { IconName } from '../Icon';
-import styles from './HeaderBar.module.scss';
+import styles from './AppHeader.module.scss';
 
-const HeaderBar: React.FC = () => {
+const AppHeader: React.FC = () => {
   return (
     <nav className={styles.root}>
       <Link to="/" className={styles.logo}>
@@ -14,4 +14,4 @@ const HeaderBar: React.FC = () => {
   );
 };
 
-export default memo(HeaderBar);
+export default memo(AppHeader);

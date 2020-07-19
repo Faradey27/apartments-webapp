@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 // we using HashRouter instead of BrowserRouter because we deploy on github pages
 import styles from './App.module.scss';
-import HeaderBar from './components/HeaderBar';
+import AppHeader from './components/AppHeader';
 import Apartment from './screens/Apartment';
 import Apartments from './screens/Apartments';
 import Payment from './screens/Payment';
@@ -13,7 +13,7 @@ const App: React.FC<{}> = () => {
   return (
     <div data-testid="app-root" className={styles.root}>
       <Router>
-        <HeaderBar />
+        <AppHeader />
         <Switch>
           <Route path="/apartments/:id/thank-you">
             <Apartment />

@@ -15,7 +15,7 @@ interface CreditCardFieldProps {
   maskChar?: string;
   error?: string | boolean;
   value?: string;
-  iconRight?: React.ReactNode;
+  suffix?: React.ReactNode;
   onChange: (event: any) => void;
   onBlur: (event: any) => void;
 }
@@ -28,7 +28,7 @@ const CreditCardField: React.FC<CreditCardFieldProps> = ({
   maskString,
   error,
   label,
-  iconRight,
+  suffix,
   onChange,
   onBlur,
 }) => {
@@ -68,9 +68,11 @@ const CreditCardField: React.FC<CreditCardFieldProps> = ({
   return (
     <label className={styles.field}>
       {label}
-      {input}
+      <div className={styles.inputWrapper}>
+        {input}
+        {suffix ? <span className={styles.suffix}>{suffix}</span> : null}
+      </div>
       <span className={styles.error}>{error}</span>
-      {iconRight ? <span className={styles.iconRight}>{iconRight}</span> : null}
     </label>
   );
 };

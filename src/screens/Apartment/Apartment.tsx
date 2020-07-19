@@ -4,8 +4,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { RequestState } from '../../api';
-import ApartmentsTitle from '../../components/ApartmentsTitle';
+import ApartmentInfo from '../../components/ApartmentInfo';
 import BookWidget from '../../components/BookWidget';
 import RequestStateVisualize from '../../components/RequestStateVisualize';
 import {
@@ -40,10 +39,10 @@ const Apartment = () => {
   );
 
   useEffect(() => {
-    if (!apartmentsDetails && requestState !== RequestState.waiting) {
+    if (!apartmentsDetails) {
       dispatch(fetchApartmentsDetailsAction(id));
     }
-  }, [apartmentsDetails, dispatch, id, requestState]);
+  }, [apartmentsDetails, dispatch, id]);
 
   return (
     <main className={styles.root}>
@@ -51,7 +50,7 @@ const Apartment = () => {
         <title>{intl.formatMessage(messages.pageTitle)}</title>
       </Helmet>
       <RequestStateVisualize requestState={requestState}>
-        <ApartmentsTitle
+        <ApartmentInfo
           size="large"
           name={apartmentsDetails?.name}
           capacity={apartmentsDetails?.capacity}
