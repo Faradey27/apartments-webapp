@@ -86,7 +86,7 @@
   padding-top: spacing(2);
   justify-content: flex-start;
   align-items: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-top: 1px solid $lightGray;
   color: $primaryTextColor;
   font-weight: 700;
   font-size: 13px;
@@ -106,7 +106,7 @@
   justify-content: center;
   align-items: center;
   flex: 0 0 auto;
-  border: 1px solid #000;
+  border: 1px solid $primaryTextColor;
   color: $primaryTextColor;
   border-radius: 0;
   font-size: 14px;
@@ -115,5 +115,5 @@
 }
 
 .learnMore {
-  border-color: #f0f0f0;
+  border-color: $lightGray;
 }

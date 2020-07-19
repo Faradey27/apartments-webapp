@@ -1,4 +1,5 @@
 import React, { memo, useMemo } from 'react';
+import { defineMessages, useIntl } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Price } from '../../api';
@@ -14,6 +15,21 @@ interface ApartmentsCardProps {
   price: Price;
 }
 
+const messages = defineMessages({
+  bookNow: {
+    id: 'apartmentsCard.bookNow',
+    defaultMessage: 'Book Now',
+  },
+  learnMore: {
+    id: 'apartmentsCard.learnMore',
+    defaultMessage: 'Learn More',
+  },
+  perNight: {
+    id: 'apartmentsCard.perNight',
+    defaultMessage: 'Per night',
+  },
+});
+
 const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
   id,
   image,
@@ -22,6 +38,7 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
   location,
   price,
 }) => {
+  const intl = useIntl();
   const historyLocation = useLocation();
   const nextLocation = useMemo(
     () => ({ ...historyLocation, pathname: `/apartments/${id}` }),
@@ -39,14 +56,14 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
           {price.value}
           {price.currency}
         </span>
-        <span>Per night</span>
+        <span>{intl.formatMessage(messages.perNight)}</span>
       </div>
       <div className={styles.footer}>
         <Link to={nextLocation} className={styles.bookNow}>
-          Book Now
+          {intl.formatMessage(messages.bookNow)}
         </Link>
         <Link to={nextLocation} className={styles.learnMore}>
-          Learn more
+          {intl.formatMessage(messages.learnMore)}
         </Link>
       </div>
     </article>

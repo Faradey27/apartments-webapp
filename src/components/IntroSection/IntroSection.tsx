@@ -9,6 +9,10 @@ const messages = defineMessages({
     id: 'introSection.title',
     defaultMessage: 'BEST OF BOTH WORLDS: suites where home meets hotel.',
   },
+  search: {
+    id: 'introSection.search',
+    defaultMessage: 'Search',
+  },
 });
 
 interface IntroSectionProps {
@@ -26,7 +30,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ onSearch }) => {
         <div className={styles.controls}>
           <DatePicker />
           <button className={styles.search} onClick={onSearch}>
-            Search
+            {intl.formatMessage(messages.search)}
           </button>
         </div>
       </div>
