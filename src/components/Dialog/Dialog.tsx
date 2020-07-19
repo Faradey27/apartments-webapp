@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import Modal from 'react-modal';
 
-import styles from './Dialog.module.scss';
 import Icon, { IconName } from '../../components/Icon';
+import styles from './Dialog.module.scss';
 
 const customStyles = {
   overlay: {

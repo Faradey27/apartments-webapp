@@ -1,12 +1,12 @@
 import React, { memo, useMemo } from 'react';
-
-import styles from './BookWidget.module.scss';
-import DatePicker from '../DatePicker';
 import { useMediaQuery } from 'react-responsive';
-import theme from '../../theme.scss';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import PriceWidget from '../PriceWidget';
+
 import { Price } from '../../api';
+import theme from '../../theme.scss';
+import DatePicker from '../DatePicker';
+import PriceWidget from '../PriceWidget';
+import styles from './BookWidget.module.scss';
 
 interface BookWidgetProps {
   price: Price;

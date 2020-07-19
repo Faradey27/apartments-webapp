@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import MaskInputRaw from 'react-maskinput';
-import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 
 import styles from './CreditCardField.module.scss';

@@ -1,16 +1,16 @@
 import React, { memo, useEffect } from 'react';
-import { defineMessages, useIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
+import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
+
+import ApartmentsCard from '../../components/ApartmentsCard';
+import IntroSection from '../../components/IntroSection';
+import { useQuery } from '../../hooks/useQuery';
 import {
   fetchApartmentsAction,
   selectApartments,
 } from '../../state/apartments';
-import ApartmentsCard from '../../components/ApartmentsCard';
-import IntroSection from '../../components/IntroSection';
-
 import styles from './Apartments.module.scss';
-import { useQuery } from '../../hooks/useQuery';
 
 const messages = defineMessages({
   pageTitle: {

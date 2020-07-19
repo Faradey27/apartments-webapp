@@ -51,7 +51,7 @@ export const bookApartmentsAction = ({
     dispatch(bookApartmentsAsyncAction.request(Number(id)));
 
     try {
-      const res = await api.bookApartments({
+      await api.bookApartments({
         id,
         fromDate,
         toDate,

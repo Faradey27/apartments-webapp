@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import clsx from 'clsx';
 
-import styles from './ApartmentsTitle.module.scss';
 import Icon, { IconName } from '../Icon';
+import styles from './ApartmentsTitle.module.scss';
 
 interface ApartmentsTitleProps {
   name: string;

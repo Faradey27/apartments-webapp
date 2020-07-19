@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react';
-import { defineMessages, useIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
+import { defineMessages, useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 
-import styles from './ThankYou.module.scss';
-import Icon, { IconName } from '../../components/Icon';
 import Dialog from '../../components/Dialog';
+import Icon, { IconName } from '../../components/Icon';
+import styles from './ThankYou.module.scss';
 
 const messages = defineMessages({
   pageTitle: {

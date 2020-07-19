@@ -1,18 +1,18 @@
 import React, { memo, useEffect } from 'react';
-import { defineMessages, useIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
-import { Link, useParams } from 'react-router-dom';
-import ApartmentsTitle from '../../components/ApartmentsTitle';
+import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../state/reducer';
-import {
-  selectApartmentsDetails,
-  fetchApartmentsDetailsAction,
-} from '../../state/apartments';
+import { useParams } from 'react-router-dom';
 
-import styles from './Apartment.module.scss';
-import Icon, { IconName } from '../../components/Icon';
+import ApartmentsTitle from '../../components/ApartmentsTitle';
 import BookWidget from '../../components/BookWidget';
+import Icon, { IconName } from '../../components/Icon';
+import {
+  fetchApartmentsDetailsAction,
+  selectApartmentsDetails,
+} from '../../state/apartments';
+import { RootState } from '../../state/reducer';
+import styles from './Apartment.module.scss';
 
 const messages = defineMessages({
   pageTitle: {
@@ -72,6 +72,7 @@ const Apartment = () => {
               {intl.formatMessage(messages.d3Tour)}
             </h3>
             <iframe
+              title="3D tour"
               className={styles.d3TourContent}
               src="https://mpembed.com/show/?m=WkgN8bjGuQ6&mpu=290"
             />

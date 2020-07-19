@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
-import { DateRangePicker, DayPickerRangeController } from 'react-dates';
-
-import styles from './IntroSection.module.scss';
 import { defineMessages, useIntl } from 'react-intl';
+
 import DatePicker from '../DatePicker';
+import styles from './IntroSection.module.scss';
 
 const messages = defineMessages({
   title: {

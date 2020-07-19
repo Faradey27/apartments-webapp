@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 
-import App from './App';
-import { configureStore } from './state';
-
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import './index.scss';
+import App from './App';
+import { configureStore } from './state';
 
 const store = configureStore();
 

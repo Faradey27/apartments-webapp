@@ -1,10 +1,9 @@
 import React, { memo, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import styles from './ApartmentsCard.module.scss';
-import ApartmentsTitle from '../ApartmentsTitle';
-import Icon, { IconName } from '../Icon';
 import { Price } from '../../api';
+import ApartmentsTitle from '../ApartmentsTitle';
+import styles from './ApartmentsCard.module.scss';
 
 interface ApartmentsCardProps {
   id: number;
@@ -32,7 +31,7 @@ const ApartmentsCard: React.FC<ApartmentsCardProps> = ({
   return (
     <article className={styles.root}>
       <Link to={nextLocation} className={styles.imageContent}>
-        <img src={image} className={styles.image} />
+        <img src={image} className={styles.image} alt="" />
       </Link>
       <ApartmentsTitle name={name} capacity={capacity} location={location} />
       <div className={styles.price}>

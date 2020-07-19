@@ -1,10 +1,10 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo } from 'react';
+import clsx from 'clsx';
 
-import styles from './PriceWidget.module.scss';
+import { Price } from '../../api';
 import { useQuery } from '../../hooks/useQuery';
 import { toMomentObject } from '../DatePicker';
-import clsx from 'clsx';
-import { Price } from '../../api';
+import styles from './PriceWidget.module.scss';
 
 interface PriceWidgetProps {
   className?: string;

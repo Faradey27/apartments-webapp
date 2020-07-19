@@ -1,12 +1,11 @@
-import React, { memo, useState, useCallback } from 'react';
-
+import React, { memo } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import moment from 'moment';
-import Icon, { IconName } from '../Icon';
-import { useQuery } from '../../hooks/useQuery';
-
-import styles from './DatePicker.module.scss';
 import clsx from 'clsx';
+import moment from 'moment';
+
+import { useQuery } from '../../hooks/useQuery';
+import Icon, { IconName } from '../Icon';
+import styles from './DatePicker.module.scss';
 
 const messages = defineMessages({
   startDate: {

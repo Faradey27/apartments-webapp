@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import styles from './App.module.scss';
+import HeaderBar from './components/HeaderBar';
 import Apartment from './screens/Apartment';
 import Apartments from './screens/Apartments';
 import Payment from './screens/Payment';
 import ThankYou from './screens/ThankYou';
-import HeaderBar from './components/HeaderBar';
-
-import styles from './App.module.scss';
 
 const App: React.FC<{}> = () => {
   return (

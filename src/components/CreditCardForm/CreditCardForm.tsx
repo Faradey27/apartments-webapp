@@ -1,20 +1,19 @@
 import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import {
+  cvv as validateCVV,
+  expirationDate as validateExpirationDate,
+  number as validateCardNumber,
+} from 'card-validator';
 import { Formik } from 'formik';
 
-import {
-  number as validateCardNumber,
-  expirationDate as validateExpirationDate,
-  cvv as validateCVV,
-} from 'card-validator';
-
-import styles from './CreditCardForm.module.scss';
-import CreditCardField from './CreditCardField';
 import { Price } from '../../api';
-import { toMomentObject } from '../DatePicker/DatePicker';
 import { useQuery } from '../../hooks/useQuery';
-import { useDispatch } from 'react-redux';
 import { bookApartmentsAction } from '../../state/apartments';
+import { toMomentObject } from '../DatePicker/DatePicker';
+import CreditCardField from './CreditCardField';
+import styles from './CreditCardForm.module.scss';
 
 interface Fields {
   fullName: string;
@@ -81,7 +80,7 @@ const CreditCardForm: React.FC<CreditCardFormProps> = ({ price }) => {
       setSubmitting(false);
       history.push('/apartments/2/thank-you');
     },
-    [id]
+    [dispatch, fromDate, history, id, toDate]
   );
 
   return (

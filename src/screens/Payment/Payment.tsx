@@ -1,19 +1,19 @@
 import React, { memo, useCallback, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { defineMessages, useIntl } from 'react-intl';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
-import styles from './Payment.module.scss';
 import CreditCardForm from '../../components/CreditCardForm';
-import Dialog from '../../components/Dialog';
-import { Helmet } from 'react-helmet';
 import { DatePickerInput } from '../../components/DatePicker';
+import Dialog from '../../components/Dialog';
 import PriceWidget from '../../components/PriceWidget';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../state/reducer';
 import {
-  selectApartmentsDetails,
   fetchApartmentsDetailsAction,
+  selectApartmentsDetails,
 } from '../../state/apartments';
+import { RootState } from '../../state/reducer';
+import styles from './Payment.module.scss';
 
 const messages = defineMessages({
   pageTitle: {

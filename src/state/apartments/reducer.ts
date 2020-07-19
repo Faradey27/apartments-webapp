@@ -1,6 +1,6 @@
 import { getType } from 'typesafe-actions';
 
-import { Apartment, RequestState, ApartmentsDetails } from '../../api/types';
+import { Apartment, ApartmentsDetails, RequestState } from '../../api/types';
 import {
   ApartmentsAction,
   fetchApartmentsAsyncAction,
