@@ -60,6 +60,8 @@ xpensive%20room"}]}
 
 ### Bonus tasks:
 
+- [x] Tablet friendly
+- [x] Mobile friendly
 - [x] Reload apartments after another date selected
 - [x] Use real API requests
 - [x] Calculate price for selected date range
