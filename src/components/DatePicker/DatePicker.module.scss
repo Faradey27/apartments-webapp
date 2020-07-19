@@ -69,3 +69,15 @@
     }
   }
 }
+
+.error {
+  font-size: 14px;
+  color: $errorColor;
+}
+
+.dark,
+.light {
+  .inputError {
+    border: 1px solid $errorColor;
+  }
+}

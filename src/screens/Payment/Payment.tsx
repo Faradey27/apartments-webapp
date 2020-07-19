@@ -1,16 +1,17 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { defineMessages, useIntl } from 'react-intl';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import CreditCardForm from '../../components/CreditCardForm';
 import { DatePickerInput } from '../../components/DatePicker';
 import Dialog from '../../components/Dialog';
 import PriceWidget from '../../components/PriceWidget';
+import RequestStateVisualize from '../../components/RequestStateVisualize';
 import {
-  fetchApartmentsDetailsAction,
   selectApartmentsDetails,
+  selectApartmentsRequestStateDetails,
 } from '../../state/apartments';
 import { RootState } from '../../state/reducer';
 import styles from './Payment.module.scss';
@@ -24,7 +25,6 @@ const messages = defineMessages({
 
 const Payment = () => {
   const intl = useIntl();
-  const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
 
@@ -35,33 +35,28 @@ const Payment = () => {
   const apartmentsDetails = useSelector((state: RootState) =>
     selectApartmentsDetails(state, id)
   );
-
-  useEffect(() => {
-    if (!apartmentsDetails) {
-      dispatch(fetchApartmentsDetailsAction(id));
-    }
-  }, [apartmentsDetails, dispatch, id]);
-
-  if (!apartmentsDetails) {
-    return null;
-  }
+  const apartmentsDetailsRequestState = useSelector((state: RootState) =>
+    selectApartmentsRequestStateDetails(state, id)
+  );
 
   return (
     <Dialog title="BOOK CENTRAL DESIGN STUDIO HOME" onClose={handleClose}>
       <Helmet>
         <title>{intl.formatMessage(messages.pageTitle)}</title>
       </Helmet>
-      <div className={styles.metadata}>
-        <PriceWidget
-          price={apartmentsDetails.price}
-          className={styles.priceWidget}
-        />
-        <DatePickerInput
-          className={styles.date}
-          iconClassName={styles.arrowRightIcon}
-        />
-      </div>
-      <CreditCardForm price={apartmentsDetails.price} />
+      <RequestStateVisualize requestState={apartmentsDetailsRequestState}>
+        <div className={styles.metadata}>
+          <PriceWidget
+            price={apartmentsDetails?.price}
+            className={styles.priceWidget}
+          />
+          <DatePickerInput
+            className={styles.date}
+            iconClassName={styles.arrowRightIcon}
+          />
+        </div>
+        <CreditCardForm price={apartmentsDetails?.price} />
+      </RequestStateVisualize>
     </Dialog>
   );
 };

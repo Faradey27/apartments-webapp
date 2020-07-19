@@ -11,7 +11,11 @@ const messages = defineMessages({
   },
 });
 
-const IntroSection: React.FC = () => {
+interface IntroSectionProps {
+  onSearch: () => void;
+}
+
+const IntroSection: React.FC<IntroSectionProps> = ({ onSearch }) => {
   const intl = useIntl();
 
   return (
@@ -19,7 +23,12 @@ const IntroSection: React.FC = () => {
       <div className={styles.image} />
       <div className={styles.content}>
         <h1 className={styles.title}>{intl.formatMessage(messages.title)}</h1>
-        <DatePicker />
+        <div className={styles.controls}>
+          <DatePicker />
+          <button className={styles.search} onClick={onSearch}>
+            Search
+          </button>
+        </div>
       </div>
     </section>
   );

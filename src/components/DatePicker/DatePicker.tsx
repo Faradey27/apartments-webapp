@@ -11,6 +11,7 @@ import styles from './DatePicker.module.scss';
 import DatePickerInput from './DatePickerInput';
 
 interface DatePickerProps {
+  error?: string;
   type?: 'light' | 'dark';
   position?: 'top' | 'left' | 'right';
 }
@@ -24,6 +25,7 @@ export const toMomentObject = (unixTimestamp: string | null) => {
 };
 
 const DatePicker: React.FC<DatePickerProps> = ({
+  error,
   type = 'light',
   position = 'left',
 }) => {
@@ -73,7 +75,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   return (
     <div className={clsx(styles.root, styles[type], styles[position])}>
-      <DatePickerInput onClick={handleOpenCalendar} />
+      <DatePickerInput error={error} onClick={handleOpenCalendar} />
       <div className={styles.calendar}>
         {isCalendarVisible ? (
           <DayPickerRangeController

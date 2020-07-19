@@ -27,12 +27,14 @@ export const toMomentObject = (unixTimestamp: string | null) => {
 };
 
 interface DatePickerInputProps {
+  error?: string;
   iconClassName?: string;
   className?: string;
   onClick?: () => void;
 }
 
 const DatePickerInput: React.FC<DatePickerInputProps> = ({
+  error,
   className,
   iconClassName,
   onClick,
@@ -43,27 +45,32 @@ const DatePickerInput: React.FC<DatePickerInputProps> = ({
   const toDate = query.get('toDate');
 
   return (
-    <div
-      role="button"
-      className={clsx(styles.dateInput, className)}
-      onClick={onClick}
-    >
-      <span>
-        {fromDate
-          ? toMomentObject(fromDate)?.format('DD MMM YY')
-          : intl.formatMessage(messages.startDate)}
-      </span>
-      <Icon
-        width="24"
-        iconName={IconName.arrowRight}
-        className={clsx(styles.arrowRightIcon, iconClassName)}
-      />
-      <span>
-        {toDate
-          ? toMomentObject(toDate)?.format('DD MMM YY')
-          : intl.formatMessage(messages.endDate)}
-      </span>
-    </div>
+    <>
+      <div
+        role="button"
+        className={clsx(styles.dateInput, className, {
+          [styles.inputError]: error,
+        })}
+        onClick={onClick}
+      >
+        <span>
+          {fromDate
+            ? toMomentObject(fromDate)?.format('DD MMM YY')
+            : intl.formatMessage(messages.startDate)}
+        </span>
+        <Icon
+          width="24"
+          iconName={IconName.arrowRight}
+          className={clsx(styles.arrowRightIcon, iconClassName)}
+        />
+        <span>
+          {toDate
+            ? toMomentObject(toDate)?.format('DD MMM YY')
+            : intl.formatMessage(messages.endDate)}
+        </span>
+      </div>
+      {error && <span className={styles.error}>{error}</span>}
+    </>
   );
 };
 

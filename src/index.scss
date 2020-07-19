@@ -37,3 +37,32 @@ p {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Dinot';
+  src: url('https://assets.website-files.com/5e39229dc791b06ec8df84f6/5e3922bab318cfb9805023b9_DINOT-Bold.ttf')
+    format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Dinot';
+  src: url('https://assets.website-files.com/5e39229dc791b06ec8df84f6/5e3922ba1a4769501d799a25_DINOT-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Dinot';
+  src: url('https://assets.website-files.com/5e39229dc791b06ec8df84f6/5e3922bab318cf5c3d5023ba_DINOT-Medium.ttf')
+    format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Jaapokki';
+  src: url('https://assets.website-files.com/5e39229dc791b06ec8df84f6/5e3922ba1a47698950799a26_jaapokki-regular.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

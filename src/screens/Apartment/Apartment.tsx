@@ -4,15 +4,18 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import { RequestState } from '../../api';
 import ApartmentsTitle from '../../components/ApartmentsTitle';
 import BookWidget from '../../components/BookWidget';
-import Icon, { IconName } from '../../components/Icon';
+import RequestStateVisualize from '../../components/RequestStateVisualize';
 import {
   fetchApartmentsDetailsAction,
   selectApartmentsDetails,
+  selectApartmentsRequestStateDetails,
 } from '../../state/apartments';
 import { RootState } from '../../state/reducer';
 import styles from './Apartment.module.scss';
+import ApartmentsNote from './ApartmentsNote';
 
 const messages = defineMessages({
   pageTitle: {
@@ -32,102 +35,67 @@ const Apartment = () => {
   const apartmentsDetails = useSelector((state: RootState) =>
     selectApartmentsDetails(state, id)
   );
+  const requestState = useSelector((state: RootState) =>
+    selectApartmentsRequestStateDetails(state, id)
+  );
 
   useEffect(() => {
-    dispatch(fetchApartmentsDetailsAction(id));
-  }, [dispatch, id]);
-
-  if (!apartmentsDetails) {
-    return null;
-  }
+    if (!apartmentsDetails && requestState !== RequestState.waiting) {
+      dispatch(fetchApartmentsDetailsAction(id));
+    }
+  }, [apartmentsDetails, dispatch, id, requestState]);
 
   return (
     <main className={styles.root}>
       <Helmet>
         <title>{intl.formatMessage(messages.pageTitle)}</title>
       </Helmet>
-      <ApartmentsTitle
-        size="large"
-        name={apartmentsDetails.name}
-        capacity={apartmentsDetails.capacity}
-        location={apartmentsDetails.location}
-      />
-      <div
-        className={styles.image}
-        style={{ backgroundImage: `url("${apartmentsDetails.image}")` }}
-      />
-      <div className={styles.content}>
-        <div>
-          <div
-            className={styles.description}
-            dangerouslySetInnerHTML={{ __html: apartmentsDetails.description }}
-          ></div>
-          <div className={styles.gallery}>
-            {apartmentsDetails.gallery.map((src) => (
-              <img src={src} alt="" key={src} className={styles.galleryItem} />
-            ))}
+      <RequestStateVisualize requestState={requestState}>
+        <ApartmentsTitle
+          size="large"
+          name={apartmentsDetails?.name}
+          capacity={apartmentsDetails?.capacity}
+          location={apartmentsDetails?.location}
+        />
+        <div
+          className={styles.image}
+          style={{ backgroundImage: `url("${apartmentsDetails?.image}")` }}
+        />
+        <div className={styles.content}>
+          <div>
+            <div
+              className={styles.description}
+              dangerouslySetInnerHTML={{
+                __html: apartmentsDetails?.description,
+              }}
+            ></div>
+            <div className={styles.gallery}>
+              {apartmentsDetails?.gallery.map((src) => (
+                <img
+                  src={src}
+                  alt=""
+                  key={src}
+                  className={styles.galleryItem}
+                />
+              ))}
+            </div>
+            <div className={styles.d3tour}>
+              <h3 className={styles.d3tourTitle}>
+                {intl.formatMessage(messages.d3Tour)}
+              </h3>
+              <iframe
+                title="3D tour"
+                className={styles.d3TourContent}
+                src="https://mpembed.com/show/?m=WkgN8bjGuQ6&mpu=290"
+              />
+            </div>
+            <ApartmentsNote />
           </div>
-          <div className={styles.d3tour}>
-            <h3 className={styles.d3tourTitle}>
-              {intl.formatMessage(messages.d3Tour)}
-            </h3>
-            <iframe
-              title="3D tour"
-              className={styles.d3TourContent}
-              src="https://mpembed.com/show/?m=WkgN8bjGuQ6&mpu=290"
-            />
-          </div>
-          <div className={styles.notes}>
-            <div className={styles.note}>
-              <Icon iconName={IconName.keyless} width={60} height={60} />
-              <p className={styles.noteTitle}>STAY HASSLE-FREE</p>
-              <p className={styles.noteSubtitle}>
-                24/7 keyless entry.
-                <br /> No check-ins or outs.
-              </p>
-            </div>
-            <div className={styles.note}>
-              <Icon iconName={IconName.hosted} width={60} height={60} />
-              <p className={styles.noteTitle}>STAY HOSTED</p>
-              <p className={styles.noteSubtitle}>
-                Dedicated & local concierge available 24/7.
-              </p>
-            </div>
-            <div className={styles.note}>
-              <Icon iconName={IconName.local} width={60} height={60} />
-              <p className={styles.noteTitle}>STAY LOCAL</p>
-              <p className={styles.noteSubtitle}>
-                Hand picked apartments in the trendiest districts.
-              </p>
-            </div>
-            <div className={styles.note}>
-              <Icon iconName={IconName.coffeee} width={60} height={60} />
-              <p className={styles.noteTitle}>STAY NOURISHED</p>
-              <p className={styles.noteSubtitle}>
-                {' '}
-                Breakfast partners at nearby handpicked venues.
-              </p>
-            </div>
-            <div className={styles.note}>
-              <Icon iconName={IconName.rested} width={60} height={60} />
-              <p className={styles.noteTitle}>STAY RESTED</p>
-              <p className={styles.noteSubtitle}>
-                Premium beds. Luxury pillows and duvets. Black out blinds.
-              </p>
-            </div>
-            <div className={styles.note}>
-              <Icon iconName={IconName.sustainable} width={60} height={60} />
-              <p className={styles.noteTitle}>STAY SUSTAINABLE</p>
-              <p className={styles.noteSubtitle}>
-                All renewable energy. Smart recycling and minimizing waste.
-              </p>
-            </div>
+          <div>
+            <BookWidget price={apartmentsDetails?.price} />
           </div>
         </div>
-        <div>
-          <BookWidget price={apartmentsDetails.price} />
-        </div>
-      </div>
+      </RequestStateVisualize>
     </main>
   );
 };

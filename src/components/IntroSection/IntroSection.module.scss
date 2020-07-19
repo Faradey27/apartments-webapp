@@ -49,37 +49,33 @@
   text-transform: uppercase;
   color: $white;
   z-index: 2;
+  font-family: Jaapokki;
 
   @media screen and (min-width: $breakpoint-tablet) {
     font-size: 35px;
   }
 }
 
-.root {
-  :global {
-    .DateRangePickerInput,
-    .DateInput,
-    .DateInput_input {
-      background-color: transparent;
-    }
+.search {
+  position: relative;
+  height: 50px;
+  min-width: 150px;
+  border: 1px solid $white;
+  color: $white;
+  background-color: transparent;
+  cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
 
-    .DateInput_input {
-      color: $white;
-
-      &::placeholder {
-        color: $white;
-      }
-    }
-
-    .DateRangePickerInput_arrow_svg {
-      fill: $white;
-      // margin-right: spacing(1);
-      // margin-left: spacing(-1);
-    }
-
-    .DateRangePickerInput__withBorder {
-      border-radius: 0;
-      border: 1px solid $white;
-    }
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-left: 4px;
+    margin-top: 0;
+    width: auto;
   }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
