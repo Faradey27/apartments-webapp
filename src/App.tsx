@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
+// we using HashRouter instead of BrowserRouter because we deploy on github pages
 import styles from './App.module.scss';
 import HeaderBar from './components/HeaderBar';
 import Apartment from './screens/Apartment';
